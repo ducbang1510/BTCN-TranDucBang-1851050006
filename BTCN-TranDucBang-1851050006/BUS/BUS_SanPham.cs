@@ -49,5 +49,41 @@ namespace BTCN_TranDucBang_1851050006.BUS
 
             return s;
         }
+
+        public void ThemSP(Product p)
+        {
+            if (dSanPham.ThemSP(p))
+            {
+                MessageBox.Show("Thêm sản phẩm thành công");
+            }
+            else
+            {
+                MessageBox.Show("Thêm sản phẩm không thành công");
+            }
+        }
+
+        public void SuaSP(Product p)
+        {
+            if (dSanPham.SuaSP(p))
+            {
+                MessageBox.Show("Sửa thông tin sản phẩm thành công");
+            }
+            else
+            {
+                MessageBox.Show("Sửa thông tin sản phẩm không thành công");
+            }
+        }
+
+        public void XoaSP(int maSP)
+        {
+            if (dSanPham.XoaSP(maSP))
+            {
+                MessageBox.Show("Xóa sản phẩm thành công");
+            }
+            else
+            {
+                MessageBox.Show("Xóa sản phẩm không thành công");
+            }
+        }
     }
 }

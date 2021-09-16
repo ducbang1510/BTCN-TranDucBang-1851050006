@@ -312,6 +312,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="sp_KiemTraSPDonHang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaDH" Type="int" Mode="In" />
+    <Parameter Name="MaSP" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="NorthwindModelStoreContainer">
     <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CustomerCustomerDemo" EntityType="Self.CustomerCustomerDemo" Schema="dbo" store:Type="Tables" />

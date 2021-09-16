@@ -38,5 +38,45 @@ namespace BTCN_TranDucBang_1851050006
             busSP.LayDSLoaiSP(cbLoaiSP);
             busSP.LayDSNCC(cbNCC);
         }
+
+        private void btThem_Click(object sender, EventArgs e)
+        {
+            Product p = new Product();
+
+            p.ProductName = txtTenSP.Text;
+            p.UnitsInStock = short.Parse(txtSoLuong.Text);
+            p.UnitPrice = decimal.Parse(txtDonGia.Text);
+            p.CategoryID = int.Parse(cbLoaiSP.SelectedValue.ToString());
+            p.SupplierID = int.Parse(cbNCC.SelectedValue.ToString());
+
+            busSP.ThemSP(p);
+            HienThiDSSanPham();
+        }
+
+        private void btXoa_Click(object sender, EventArgs e)
+        {
+            busSP.XoaSP(int.Parse(gVSanPham.Rows[gVSanPham.CurrentRow.Index].Cells[0].Value.ToString()));
+            HienThiDSSanPham();
+        }
+
+        private void btSua_Click(object sender, EventArgs e)
+        {
+            Product p = new Product();
+
+            p.ProductID = int.Parse(gVSanPham.Rows[gVSanPham.CurrentRow.Index].Cells[0].Value.ToString());
+            p.ProductName = txtTenSP.Text;
+            p.UnitsInStock = short.Parse(txtSoLuong.Text);
+            p.UnitPrice = decimal.Parse(txtDonGia.Text);
+            p.CategoryID = int.Parse(cbLoaiSP.SelectedValue.ToString());
+            p.SupplierID = int.Parse(cbNCC.SelectedValue.ToString());
+
+            busSP.SuaSP(p);
+            HienThiDSSanPham();
+        }
+
+        private void btThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

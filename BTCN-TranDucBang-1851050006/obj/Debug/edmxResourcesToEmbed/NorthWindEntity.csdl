@@ -334,5 +334,9 @@
       <End Role="Employees" EntitySet="Employees" />
       <End Role="Territories" EntitySet="Territories" />
     </AssociationSet>
+    <FunctionImport Name="sp_KiemTraSPDonHang" ReturnType="Collection(Int32)">
+      <Parameter Name="MaDH" Mode="In" Type="Int32" />
+      <Parameter Name="MaSP" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>

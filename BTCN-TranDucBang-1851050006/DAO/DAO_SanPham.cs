@@ -58,5 +58,65 @@ namespace BTCN_TranDucBang_1851050006.DAO
 
             return sp;
         }
+
+        public bool ThemSP(Product p)
+        {
+            bool tinhTrang = false;
+            try
+            {
+                db.Products.Add(p);
+                db.SaveChanges();
+                tinhTrang = true;
+            }
+            catch (Exception)
+            {
+                tinhTrang = false;
+            }
+
+            return tinhTrang;
+        }
+
+        public bool SuaSP(Product p)
+        {
+            bool tinhTrang = false;
+            try
+            {
+                Product product = db.Products.Find(p.ProductID);
+
+                product.ProductName = p.ProductName;
+                product.UnitsInStock = p.UnitsInStock;
+                product.UnitPrice = p.UnitPrice;
+                product.CategoryID = p.CategoryID;
+                product.SupplierID = p.SupplierID;
+
+                db.SaveChanges();
+                tinhTrang = true;
+            }
+            catch (Exception)
+            {
+                tinhTrang = false;
+            }
+
+            return tinhTrang;
+        }
+
+        public bool XoaSP(int maSP)
+        {
+            bool tinhTrang = true;
+            try
+            {
+                Product p = db.Products.Find(maSP);
+                db.Products.Remove(p);
+                db.SaveChanges();
+
+                tinhTrang = true;
+            }
+            catch (Exception)
+            {
+                tinhTrang = false;
+            }
+
+            return tinhTrang;
+        }
     }
 }

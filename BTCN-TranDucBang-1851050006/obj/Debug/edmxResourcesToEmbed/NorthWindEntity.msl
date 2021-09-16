@@ -167,5 +167,6 @@
         <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
       </EndProperty>
     </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="sp_KiemTraSPDonHang" FunctionName="NorthwindModel.Store.sp_KiemTraSPDonHang" />
   </EntityContainerMapping>
 </Mapping>

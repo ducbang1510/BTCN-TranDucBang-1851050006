@@ -135,7 +135,7 @@ namespace BTCN_TranDucBang_1851050006
             // 
             this.cbNCC.FormattingEnabled = true;
             this.cbNCC.Location = new System.Drawing.Point(445, 70);
-            this.cbNCC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbNCC.Margin = new System.Windows.Forms.Padding(2);
             this.cbNCC.Name = "cbNCC";
             this.cbNCC.Size = new System.Drawing.Size(219, 21);
             this.cbNCC.TabIndex = 14;
@@ -144,7 +144,7 @@ namespace BTCN_TranDucBang_1851050006
             // 
             this.cbLoaiSP.FormattingEnabled = true;
             this.cbLoaiSP.Location = new System.Drawing.Point(445, 43);
-            this.cbLoaiSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbLoaiSP.Margin = new System.Windows.Forms.Padding(2);
             this.cbLoaiSP.Name = "cbLoaiSP";
             this.cbLoaiSP.Size = new System.Drawing.Size(219, 21);
             this.cbLoaiSP.TabIndex = 13;
@@ -204,6 +204,7 @@ namespace BTCN_TranDucBang_1851050006
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -278,6 +279,7 @@ namespace BTCN_TranDucBang_1851050006
             this.btThoat.TabIndex = 3;
             this.btThoat.Text = "Thoát";
             this.btThoat.UseVisualStyleBackColor = true;
+            this.btThoat.Click += new System.EventHandler(this.btThoat_Click);
             // 
             // btSua
             // 
@@ -287,6 +289,7 @@ namespace BTCN_TranDucBang_1851050006
             this.btSua.TabIndex = 2;
             this.btSua.Text = "Sửa";
             this.btSua.UseVisualStyleBackColor = true;
+            this.btSua.Click += new System.EventHandler(this.btSua_Click);
             // 
             // btXoa
             // 
@@ -296,6 +299,7 @@ namespace BTCN_TranDucBang_1851050006
             this.btXoa.TabIndex = 1;
             this.btXoa.Text = "Xóa";
             this.btXoa.UseVisualStyleBackColor = true;
+            this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
             // 
             // btThem
             // 
@@ -305,6 +309,7 @@ namespace BTCN_TranDucBang_1851050006
             this.btThem.TabIndex = 0;
             this.btThem.Text = "Thêm";
             this.btThem.UseVisualStyleBackColor = true;
+            this.btThem.Click += new System.EventHandler(this.btThem_Click);
             // 
             // groupBox3
             // 
@@ -320,7 +325,7 @@ namespace BTCN_TranDucBang_1851050006
             // 
             this.gVSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gVSanPham.Location = new System.Drawing.Point(9, 18);
-            this.gVSanPham.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gVSanPham.Margin = new System.Windows.Forms.Padding(2);
             this.gVSanPham.Name = "gVSanPham";
             this.gVSanPham.RowHeadersWidth = 62;
             this.gVSanPham.RowTemplate.Height = 28;

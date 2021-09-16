@@ -70,7 +70,8 @@ namespace BTCN_TranDucBang_1851050006
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FQuanLy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Form quản lý";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
