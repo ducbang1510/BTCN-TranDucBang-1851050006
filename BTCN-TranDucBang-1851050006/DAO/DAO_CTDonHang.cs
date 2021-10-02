@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace BTCN_TranDucBang_1851050006.DAO
+namespace ShoesShop.DAO
 {
     class DAO_CTDonHang
     {
-        NorthwindEntities db;
+        ShoesShopDBEntities db;
 
         public DAO_CTDonHang()
         {
-            db = new NorthwindEntities();
+            db = new ShoesShopDBEntities();
         }
 
         public dynamic LayDSCTDH(int maDH)
@@ -23,7 +24,7 @@ namespace BTCN_TranDucBang_1851050006.DAO
                 .Select(s => new
                 {
                     s.OrderID,
-                    s.ProductID,
+                    s.ShoesID,
                     s.UnitPrice,
                     s.Quantity
                 }).ToList();
@@ -31,51 +32,33 @@ namespace BTCN_TranDucBang_1851050006.DAO
             return ds;
         }
 
-        public bool ThemDanhSachCTDH(List<Order_Detail> ds)
+        public bool KiemTraSPDH(Order_Detail d)
         {
             bool tinhTrang = true;
-            try
-            {
-                db.Order_Details.AddRange(ds);
-                db.SaveChanges();
+            int? sl;
+            sl = db.sp_KiemTraSPDonHang(d.OrderID, d.ShoesID).FirstOrDefault();
 
-                tinhTrang = true;
-            }
-            catch (Exception)
-            {
+            if (sl == 1)
                 tinhTrang = false;
-                throw;
-            }
 
             return tinhTrang;
         }
 
-        public bool KiemTraSPDH(Order_Detail d)
+        public void ThemCTDonHang(Order_Detail d)
         {
-            int? sl;
-            sl = db.sp_KiemTraSPDonHang(d.OrderID, d.ProductID).FirstOrDefault();
-            if (sl != 0)
-                return false;
-            else
-                return true;
-        }
-
-        public void ThemCTDH(Order_Detail d)
-        { 
             db.Order_Details.Add(d);
             db.SaveChanges();
         }
 
-        public bool SuaCTDH(Order_Detail d)
+        public bool SuaCTDonHang(Order_Detail d)
         {
             bool tinhTrang = false;
             try
             {
-                Order_Detail ct = db.Order_Details.First(s => s.OrderID == d.OrderID && s.ProductID == d.ProductID);
+                Order_Detail ct = db.Order_Details.First(s => s.OrderID == d.OrderID && s.ShoesID == d.ShoesID);
 
                 ct.Quantity = d.Quantity;
                 ct.UnitPrice = d.UnitPrice;
-                ct.Discount = d.Discount;
 
                 db.SaveChanges();
                 tinhTrang = true;
@@ -87,13 +70,13 @@ namespace BTCN_TranDucBang_1851050006.DAO
             return tinhTrang;
         }
 
-        public bool XoaCTDH(int maDH, int maSP)
+        public bool XoaCTDonHang(int maDH, int maGiay)
         {
             bool tinhTrang = true;
             try
             {
                 // Xoa chi tiet don hang co OrderID = maDH va ProductID = maSP
-                Order_Detail d = db.Order_Details.Single(s => s.OrderID == maDH && s.ProductID == maSP);
+                Order_Detail d = db.Order_Details.Single(s => s.OrderID == maDH && s.ShoesID == maGiay);
                 db.Order_Details.Remove(d);
                 db.SaveChanges();
 

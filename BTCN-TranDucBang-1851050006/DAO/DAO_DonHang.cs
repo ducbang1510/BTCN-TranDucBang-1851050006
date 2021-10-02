@@ -4,81 +4,89 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BTCN_TranDucBang_1851050006.DAO
+namespace ShoesShop.DAO
 {
     class DAO_DonHang
     {
-        NorthwindEntities db;
+        ShoesShopDBEntities db;
 
         public DAO_DonHang()
         {
-            db = new NorthwindEntities();
+            db = new ShoesShopDBEntities();
         }
 
-        public dynamic LayDSKhachHang()
-        {
-            dynamic ds = db.Customers.Select(s => new 
-            { 
-                s.CustomerID, 
-                s.CompanyName 
-            }).ToList();
-
-            return ds;
-        }
-
-        // Xử lý Employee
-        public dynamic LayDSNhanVien()
-        {
-            var ds = db.Employees.Select(s => new 
-            { 
-                s.EmployeeID, 
-                s.LastName, 
-                s.FirstName 
-            }).ToList();
-
-            return ds;
-        }
-
-        // Xử lý Order
         public dynamic LayDSDonHang()
         {
             dynamic ds = db.Orders.Select(s => new
             {
                 s.OrderID,
                 s.OrderDate,
-                s.Customer.CompanyName,
-                s.Employee.FirstName
+                Customer = s.Customer.FullName,
+                Employee = s.Employee.FullName,
+                s.TotalPrice
             }).ToList();
 
             return ds;
         }
 
-        public bool KTDonHang(Order donHang)
+        public dynamic LayDSKH()
         {
-            Order d = db.Orders.Find(donHang.OrderID);
-            if (d != null)
+            var ds = db.Customers.Select(s => new
             {
-                return true;
+                s.CustomerID,
+                s.FullName,
+            }).ToList();
+
+            return ds;
+        }
+
+        public dynamic LayDSNV()
+        {
+            var ds = db.Employees.Select(s => new
+            {
+                s.EmployeeID,
+                s.FullName,
+            }).ToList();
+
+            return ds;
+        }
+
+        public bool ThemDonHang(Order d)
+        {
+            bool tinhTrang = true;
+
+            try
+            {
+                db.Orders.Add(d);
+                db.SaveChanges();
             }
-            else
-                return false;
+            catch (Exception)
+            {
+                tinhTrang = false;
+            }
+            return tinhTrang;
         }
 
-        public void ThemDonHang(Order d)
+        public bool SuaDonHang(Order donHang)
         {
-            db.Orders.Add(d);
-            db.SaveChanges();
-        }
+            bool tinhTrang = true;
 
-        public void SuaDonHang(Order donHang)
-        {
-            Order d = db.Orders.Find(donHang.OrderID);
+            try
+            {
+                Order d = db.Orders.Find(donHang.OrderID);
 
-            d.OrderDate = donHang.OrderDate;
-            d.CustomerID = donHang.CustomerID;
-            d.EmployeeID = donHang.EmployeeID;
+                d.OrderDate = donHang.OrderDate;
+                d.CustomerID = donHang.CustomerID;
+                d.EmployeeID = donHang.EmployeeID;
 
-            db.SaveChanges();
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+                tinhTrang = false;
+            }
+
+            return tinhTrang;        
         }
 
         public bool XoaDonHang(int maDH)
@@ -108,6 +116,12 @@ namespace BTCN_TranDucBang_1851050006.DAO
                 tinhTrang = false;
             }
             return tinhTrang;
+        }
+
+        public List<Order> LayDSDonHangReport()
+        {
+            var ds = db.Orders.Select(s => s).ToList();
+            return ds;
         }
     }
 }
