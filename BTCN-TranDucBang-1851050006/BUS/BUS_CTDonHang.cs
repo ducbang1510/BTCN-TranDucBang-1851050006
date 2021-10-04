@@ -1,4 +1,4 @@
-﻿using ShoesShop.DAO;
+﻿using BTCN_TranDucBang_1851050006.DAO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,16 +8,18 @@ using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Forms;
 
-namespace ShoesShop.BUS
+namespace BTCN_TranDucBang_1851050006.BUS
 {
     class BUS_CTDonHang
     {
-        DAO_CTDonHang daoCTDH;
-
+        DAO_CTDonHang dCTDonHang;
+        DAO_SanPham dSanPham;
         public BUS_CTDonHang()
         {
-            daoCTDH = new DAO_CTDonHang();
+            dCTDonHang = new DAO_CTDonHang();
+            dSanPham = new DAO_SanPham();
         }
+
 
         private DataTable InitDG()
         {
@@ -33,7 +35,7 @@ namespace ShoesShop.BUS
 
         public void HienThiDSCTDH(DataGridView dg, int maDH)
         {
-            var ds = daoCTDH.LayDSCTDH(maDH);
+            var ds = dCTDonHang.LayDSCTDH(maDH);
             if (ds != null)
             {
                 dg.DataSource = ds;
@@ -44,7 +46,19 @@ namespace ShoesShop.BUS
             }
         }
 
-        public bool ThemCTDonHang(int maDH, DataTable dtSanPham) //
+        public void ThemDanhSachCTDH(List<Order_Detail> list)
+        {
+            if (dCTDonHang.ThemDanhSachCTDH(list))
+            {
+                MessageBox.Show("Đặt hàng thành công");
+            }
+            else
+            {
+                MessageBox.Show("Đặt hàng không thành công");
+            }
+        }
+
+        public bool ThemCTDH(int maDH, DataTable dtSanPham) //
         {
             bool ketQua = false;
             using (var tran = new TransactionScope())
@@ -55,58 +69,53 @@ namespace ShoesShop.BUS
                     {
                         Order_Detail d = new Order_Detail();
                         d.OrderID = maDH;
-                        d.ShoesID = int.Parse(item[0].ToString());
-                        d.UnitPrice = decimal.Parse(item[2].ToString());
-                        d.Quantity = short.Parse(item[3].ToString());
-
-                        if (daoCTDH.KiemTraSPDH(d))
+                        d.ProductID = int.Parse(item[0].ToString());
+                        d.UnitPrice = decimal.Parse(item[1].ToString());
+                        d.Quantity = short.Parse(item[2].ToString());
+                        d.Discount = float.Parse(item[3].ToString());
+                        if(dCTDonHang.KiemTraSPDH(d))
                         {
-                            daoCTDH.ThemCTDonHang(d);
+                            dCTDonHang.ThemCTDH(d);
                         }
                         else
                         {
-                            throw new Exception("Sản phẩm đã tồn tại, vui lòng thử lại" + d.ShoesID);
+                            throw new Exception("Sản phẩm đã tồn tại " + d.ProductID);
                         }
                     }
-
                     tran.Complete();
                     ketQua = true;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Có lỗi xảy ra: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(ex.Message);
                     ketQua = false;
-                }
+                } 
             }
 
             return ketQua;
         }
 
-        public void SuaCTDonHang(Order_Detail d)
+        public void SuaCTDH(Order_Detail d)
         {
-            if (daoCTDH.SuaCTDonHang(d))
+            if (dCTDonHang.SuaCTDH(d))
             {
-                MessageBox.Show("Sửa chi tiết đơn hàng thành công",
-                       "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sửa chi tiết đơn hàng thành công");
             }
             else
             {
-                MessageBox.Show("Sửa chi tiết đơn hàng thất bại",
-                          "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Không thấy chi tiết đơn hàng để sửa");
             }
         }
 
-        public void XoaCTDonHang(int maDH, int maGiay)
+        public void XoaCTDH(int maDH, int maSP)
         {
-            if (daoCTDH.XoaCTDonHang(maDH, maGiay))
+            if (dCTDonHang.XoaCTDH(maDH, maSP))
             {
-                MessageBox.Show("Xóa CTDH thành công",
-                          "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Xóa CTDH thành công");
             }
             else
             {
-                MessageBox.Show("Xóa CTDH thất bại",
-                          "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Xóa CTDH không thành công");
             }
         }
     }

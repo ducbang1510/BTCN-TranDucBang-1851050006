@@ -1,5 +1,5 @@
 ﻿
-namespace ShoesShop
+namespace BTCN_TranDucBang_1851050006
 {
     partial class FChiTietDonHang
     {
@@ -29,18 +29,16 @@ namespace ShoesShop
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FChiTietDonHang));
             this.maDonHangLabel = new System.Windows.Forms.Label();
             this.maSanPhamLabel = new System.Windows.Forms.Label();
             this.soLuongLabel = new System.Windows.Forms.Label();
             this.donGiaLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
+            this.txtDonGia = new System.Windows.Forms.TextBox();
+            this.txtMaSP = new System.Windows.Forms.TextBox();
             this.txtMaDH = new System.Windows.Forms.TextBox();
-            this.txtGia = new System.Windows.Forms.TextBox();
-            this.txtMaGiay = new System.Windows.Forms.TextBox();
             this.dtpNgayDonHang = new System.Windows.Forms.DateTimePicker();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -53,128 +51,115 @@ namespace ShoesShop
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.gVCTDH = new System.Windows.Forms.DataGridView();
-            this.btXoa = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btThoat = new System.Windows.Forms.Button();
             this.btSua = new System.Windows.Forms.Button();
+            this.btXoa = new System.Windows.Forms.Button();
             this.btThem = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gVCTDH = new System.Windows.Forms.DataGridView();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.quảnLýSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quảnLýĐơnHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gVCTDH)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // maDonHangLabel
             // 
             this.maDonHangLabel.AutoSize = true;
-            this.maDonHangLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maDonHangLabel.Location = new System.Drawing.Point(13, 43);
+            this.maDonHangLabel.Location = new System.Drawing.Point(19, 48);
             this.maDonHangLabel.Name = "maDonHangLabel";
-            this.maDonHangLabel.Size = new System.Drawing.Size(101, 16);
+            this.maDonHangLabel.Size = new System.Drawing.Size(74, 13);
             this.maDonHangLabel.TabIndex = 2;
             this.maDonHangLabel.Text = "Mã đơn hàng:";
             // 
             // maSanPhamLabel
             // 
             this.maSanPhamLabel.AutoSize = true;
-            this.maSanPhamLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maSanPhamLabel.Location = new System.Drawing.Point(13, 76);
+            this.maSanPhamLabel.Location = new System.Drawing.Point(19, 75);
             this.maSanPhamLabel.Name = "maSanPhamLabel";
-            this.maSanPhamLabel.Size = new System.Drawing.Size(67, 16);
+            this.maSanPhamLabel.Size = new System.Drawing.Size(74, 13);
             this.maSanPhamLabel.TabIndex = 4;
-            this.maSanPhamLabel.Text = "Mã giày:";
+            this.maSanPhamLabel.Text = "Mã sản phẩm:";
             // 
             // soLuongLabel
             // 
             this.soLuongLabel.AutoSize = true;
-            this.soLuongLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.soLuongLabel.Location = new System.Drawing.Point(314, 76);
+            this.soLuongLabel.Location = new System.Drawing.Point(355, 78);
             this.soLuongLabel.Name = "soLuongLabel";
-            this.soLuongLabel.Size = new System.Drawing.Size(73, 16);
+            this.soLuongLabel.Size = new System.Drawing.Size(52, 13);
             this.soLuongLabel.TabIndex = 6;
             this.soLuongLabel.Text = "Số lượng:";
             // 
             // donGiaLabel
             // 
             this.donGiaLabel.AutoSize = true;
-            this.donGiaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.donGiaLabel.Location = new System.Drawing.Point(314, 43);
+            this.donGiaLabel.Location = new System.Drawing.Point(355, 48);
             this.donGiaLabel.Name = "donGiaLabel";
-            this.donGiaLabel.Size = new System.Drawing.Size(36, 16);
+            this.donGiaLabel.Size = new System.Drawing.Size(47, 13);
             this.donGiaLabel.TabIndex = 8;
-            this.donGiaLabel.Text = "Giá:";
+            this.donGiaLabel.Text = "Đơn giá:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.label1.Location = new System.Drawing.Point(17, 93);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(328, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(365, 46);
+            this.label1.Size = new System.Drawing.Size(165, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Chi Tiết Đơn Hàng";
+            this.label1.Text = "CHI TIẾT ĐƠN HÀNG";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.txtSoLuong);
-            this.groupBox1.Controls.Add(this.txtMaDH);
-            this.groupBox1.Controls.Add(this.txtGia);
-            this.groupBox1.Controls.Add(this.txtMaGiay);
+            this.groupBox1.Controls.Add(this.txtDonGia);
+            this.groupBox1.Controls.Add(this.txtMaSP);
             this.groupBox1.Controls.Add(this.maDonHangLabel);
+            this.groupBox1.Controls.Add(this.txtMaDH);
             this.groupBox1.Controls.Add(this.maSanPhamLabel);
             this.groupBox1.Controls.Add(this.soLuongLabel);
             this.groupBox1.Controls.Add(this.donGiaLabel);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(21, 189);
+            this.groupBox1.Location = new System.Drawing.Point(42, 70);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(693, 112);
+            this.groupBox1.Size = new System.Drawing.Size(686, 132);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin đơn hàng";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ShoesShop.Properties.Resources.bill;
-            this.pictureBox1.Location = new System.Drawing.Point(578, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 94);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoLuong.Location = new System.Drawing.Point(393, 72);
+            this.txtSoLuong.Location = new System.Drawing.Point(425, 72);
             this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Size = new System.Drawing.Size(179, 24);
+            this.txtSoLuong.Size = new System.Drawing.Size(200, 20);
             this.txtSoLuong.TabIndex = 12;
+            // 
+            // txtDonGia
+            // 
+            this.txtDonGia.Location = new System.Drawing.Point(425, 46);
+            this.txtDonGia.Name = "txtDonGia";
+            this.txtDonGia.Size = new System.Drawing.Size(200, 20);
+            this.txtDonGia.TabIndex = 11;
+            // 
+            // txtMaSP
+            // 
+            this.txtMaSP.Location = new System.Drawing.Point(124, 71);
+            this.txtMaSP.Name = "txtMaSP";
+            this.txtMaSP.Size = new System.Drawing.Size(200, 20);
+            this.txtMaSP.TabIndex = 10;
             // 
             // txtMaDH
             // 
-            this.txtMaDH.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaDH.Location = new System.Drawing.Point(120, 38);
+            this.txtMaDH.Location = new System.Drawing.Point(124, 45);
             this.txtMaDH.Name = "txtMaDH";
-            this.txtMaDH.Size = new System.Drawing.Size(180, 24);
-            this.txtMaDH.TabIndex = 11;
-            // 
-            // txtGia
-            // 
-            this.txtGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGia.Location = new System.Drawing.Point(393, 38);
-            this.txtGia.Name = "txtGia";
-            this.txtGia.Size = new System.Drawing.Size(179, 24);
-            this.txtGia.TabIndex = 11;
-            // 
-            // txtMaGiay
-            // 
-            this.txtMaGiay.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaGiay.Location = new System.Drawing.Point(120, 71);
-            this.txtMaGiay.Name = "txtMaGiay";
-            this.txtMaGiay.Size = new System.Drawing.Size(180, 24);
-            this.txtMaGiay.TabIndex = 10;
+            this.txtMaDH.ReadOnly = true;
+            this.txtMaDH.Size = new System.Drawing.Size(200, 20);
+            this.txtMaDH.TabIndex = 3;
             // 
             // dtpNgayDonHang
             // 
@@ -209,6 +194,7 @@ namespace ShoesShop
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -263,104 +249,130 @@ namespace ShoesShop
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btThoat);
+            this.groupBox2.Controls.Add(this.btSua);
+            this.groupBox2.Controls.Add(this.btXoa);
+            this.groupBox2.Controls.Add(this.btThem);
+            this.groupBox2.Location = new System.Drawing.Point(400, 208);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(328, 83);
+            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabStop = false;
+            // 
+            // btThoat
+            // 
+            this.btThoat.Location = new System.Drawing.Point(249, 19);
+            this.btThoat.Name = "btThoat";
+            this.btThoat.Size = new System.Drawing.Size(75, 58);
+            this.btThoat.TabIndex = 3;
+            this.btThoat.Text = "Thoát";
+            this.btThoat.UseVisualStyleBackColor = true;
+            this.btThoat.Click += new System.EventHandler(this.btThoat_Click);
+            // 
+            // btSua
+            // 
+            this.btSua.Location = new System.Drawing.Point(168, 19);
+            this.btSua.Name = "btSua";
+            this.btSua.Size = new System.Drawing.Size(75, 58);
+            this.btSua.TabIndex = 2;
+            this.btSua.Text = "Sửa";
+            this.btSua.UseVisualStyleBackColor = true;
+            this.btSua.Click += new System.EventHandler(this.btSua_Click);
+            // 
+            // btXoa
+            // 
+            this.btXoa.Location = new System.Drawing.Point(87, 19);
+            this.btXoa.Name = "btXoa";
+            this.btXoa.Size = new System.Drawing.Size(75, 58);
+            this.btXoa.TabIndex = 1;
+            this.btXoa.Text = "Xóa";
+            this.btXoa.UseVisualStyleBackColor = true;
+            this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
+            // 
+            // btThem
+            // 
+            this.btThem.Location = new System.Drawing.Point(6, 19);
+            this.btThem.Name = "btThem";
+            this.btThem.Size = new System.Drawing.Size(75, 58);
+            this.btThem.TabIndex = 0;
+            this.btThem.Text = "Thêm";
+            this.btThem.UseVisualStyleBackColor = true;
+            this.btThem.Click += new System.EventHandler(this.btThem_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.gVCTDH);
+            this.groupBox3.Location = new System.Drawing.Point(55, 297);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(669, 301);
+            this.groupBox3.TabIndex = 11;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Chi tiết đơn hàng";
+            // 
             // gVCTDH
             // 
             this.gVCTDH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gVCTDH.Location = new System.Drawing.Point(21, 366);
+            this.gVCTDH.Location = new System.Drawing.Point(9, 18);
             this.gVCTDH.Margin = new System.Windows.Forms.Padding(2);
             this.gVCTDH.Name = "gVCTDH";
             this.gVCTDH.RowHeadersWidth = 62;
             this.gVCTDH.RowTemplate.Height = 28;
-            this.gVCTDH.Size = new System.Drawing.Size(693, 246);
+            this.gVCTDH.Size = new System.Drawing.Size(650, 269);
             this.gVCTDH.TabIndex = 0;
             this.gVCTDH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gVCTDH_CellClick);
             // 
-            // btXoa
+            // menuStrip1
             // 
-            this.btXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btXoa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btXoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btXoa.Location = new System.Drawing.Point(606, 316);
-            this.btXoa.Name = "btXoa";
-            this.btXoa.Size = new System.Drawing.Size(93, 36);
-            this.btXoa.TabIndex = 5;
-            this.btXoa.Text = "Xóa";
-            this.btXoa.UseVisualStyleBackColor = false;
-            this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quảnLýSảnPhẩmToolStripMenuItem,
+            this.quảnLýĐơnHàngToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(764, 29);
+            this.menuStrip1.TabIndex = 15;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // btSua
+            // quảnLýSảnPhẩmToolStripMenuItem
             // 
-            this.btSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btSua.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btSua.Location = new System.Drawing.Point(485, 316);
-            this.btSua.Name = "btSua";
-            this.btSua.Size = new System.Drawing.Size(93, 36);
-            this.btSua.TabIndex = 4;
-            this.btSua.Text = "Sửa";
-            this.btSua.UseVisualStyleBackColor = false;
-            this.btSua.Click += new System.EventHandler(this.btSua_Click);
+            this.quảnLýSảnPhẩmToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.quảnLýSảnPhẩmToolStripMenuItem.ForeColor = System.Drawing.Color.Blue;
+            this.quảnLýSảnPhẩmToolStripMenuItem.Name = "quảnLýSảnPhẩmToolStripMenuItem";
+            this.quảnLýSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(159, 25);
+            this.quảnLýSảnPhẩmToolStripMenuItem.Text = "Quản lý sản phẩm";
             // 
-            // btThem
+            // quảnLýĐơnHàngToolStripMenuItem
             // 
-            this.btThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btThem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btThem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btThem.Location = new System.Drawing.Point(363, 316);
-            this.btThem.Name = "btThem";
-            this.btThem.Size = new System.Drawing.Size(93, 36);
-            this.btThem.TabIndex = 3;
-            this.btThem.Text = "Thêm";
-            this.btThem.UseVisualStyleBackColor = false;
-            this.btThem.Click += new System.EventHandler(this.btThem_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 342);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(204, 18);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Thông tin chi tiết hóa đơn:";
-            // 
-            // label2
-            // 
-            this.label2.Image = global::ShoesShop.Properties.Resources.logo3;
-            this.label2.Location = new System.Drawing.Point(370, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(344, 188);
-            this.label2.TabIndex = 6;
+            this.quảnLýĐơnHàngToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.quảnLýĐơnHàngToolStripMenuItem.ForeColor = System.Drawing.Color.Blue;
+            this.quảnLýĐơnHàngToolStripMenuItem.Name = "quảnLýĐơnHàngToolStripMenuItem";
+            this.quảnLýĐơnHàngToolStripMenuItem.Size = new System.Drawing.Size(158, 25);
+            this.quảnLýĐơnHàngToolStripMenuItem.Text = "Quản lý đơn hàng";
             // 
             // FChiTietDonHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(730, 623);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btXoa);
-            this.Controls.Add(this.btSua);
-            this.Controls.Add(this.btThem);
-            this.Controls.Add(this.gVCTDH);
+            this.ClientSize = new System.Drawing.Size(764, 610);
+            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FChiTietDonHang";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Chi tiết đơn hàng";
+            this.Text = "FOrderDetails";
+            this.Activated += new System.EventHandler(this.FChiTietDonHang_Activated);
             this.Load += new System.EventHandler(this.FChiTietDonHang_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gVCTDH)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,20 +394,23 @@ namespace ShoesShop
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.DateTimePicker dtpNgayDonHang;
+        private System.Windows.Forms.TextBox txtMaDH;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btThoat;
+        private System.Windows.Forms.Button btSua;
+        private System.Windows.Forms.Button btXoa;
+        private System.Windows.Forms.Button btThem;
+        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label maDonHangLabel;
         private System.Windows.Forms.Label maSanPhamLabel;
         private System.Windows.Forms.Label soLuongLabel;
         private System.Windows.Forms.Label donGiaLabel;
-        private System.Windows.Forms.TextBox txtMaGiay;
-        private System.Windows.Forms.TextBox txtSoLuong;
-        private System.Windows.Forms.TextBox txtGia;
+        private System.Windows.Forms.TextBox txtMaSP;
         private System.Windows.Forms.DataGridView gVCTDH;
-        private System.Windows.Forms.Button btXoa;
-        private System.Windows.Forms.Button btSua;
-        private System.Windows.Forms.Button btThem;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtMaDH;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtSoLuong;
+        private System.Windows.Forms.TextBox txtDonGia;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem quảnLýSảnPhẩmToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quảnLýĐơnHàngToolStripMenuItem;
     }
 }

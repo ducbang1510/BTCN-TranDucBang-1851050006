@@ -1,4 +1,4 @@
-﻿using ShoesShop.DAO;
+﻿using BTCN_TranDucBang_1851050006.DAO;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
@@ -7,81 +7,82 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ShoesShop.BUS
+namespace BTCN_TranDucBang_1851050006.BUS
 {
     class BUS_DonHang
     {
-        DAO_DonHang daoDH;
+        DAO_DonHang dDonHang;
 
         public BUS_DonHang()
         {
-            daoDH = new DAO_DonHang();
+            dDonHang = new DAO_DonHang();
         }
 
+        public void LayDSKhachHang(ComboBox cb)
+        {
+            cb.DisplayMember = "CompanyName";
+            cb.ValueMember = "CustomerID";
+            cb.DataSource = dDonHang.LayDSKhachHang();
+        }
+
+        // Phần xử lý nhân viên
+        public void LayDSNhanVien(ComboBox cb)
+        {
+            cb.DisplayMember = "FirstName";
+            cb.ValueMember = "EmployeeID";
+            cb.DataSource = dDonHang.LayDSNhanVien();
+        }
+
+        // Phần xử lý đơn hàng
         public void HienThiDSDonHang(DataGridView dg)
         {
-            dg.DataSource = daoDH.LayDSDonHang();
+            dg.DataSource = dDonHang.LayDSDonHang();
         }
 
-        public void LayDSKH(ComboBox cb)
+        public bool TaoDonHang(Order d)
         {
-            cb.DataSource = daoDH.LayDSKH();
-            cb.DisplayMember = "FullName";
-            cb.ValueMember = "CustomerID";
-        }
-
-        public void LayDSNV(ComboBox cb)
-        {
-            cb.DataSource = daoDH.LayDSNV();
-            cb.DisplayMember = "FullName";
-            cb.ValueMember = "EmployeeID";
-        }
-
-        public void ThemDonHang(Order d)
-        {
-            if (daoDH.ThemDonHang(d))
+            try
             {
-                MessageBox.Show("Thêm đơn hàng thành công", "Thông báo",
-                       MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dDonHang.ThemDonHang(d);
+                return true;
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Thêm đơn hàng thất bại", "Thông báo",
-                       MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }   
+                return false;
+            }
         }
 
         public void XoaDonHang(int maDH)
         {
-            if (daoDH.XoaDonHang(maDH))
+            if (dDonHang.XoaDonHang(maDH))
             {
-                MessageBox.Show("Xóa đơn hàng thành công", "Thông báo",
-                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Xóa đơn hàng thành công");
             }
             else
             {
-                MessageBox.Show("Xóa đơn hàng thất bại", "Thông báo",
-                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Không thấy đơn hàng để xóa");
             }
         }
 
-        public void SuaDonHang(Order donHang)
+        public bool SuaDonHang(Order donHang)
         {
-            if (daoDH.SuaDonHang(donHang))
+            if (dDonHang.KTDonHang(donHang))
             {
-                MessageBox.Show("Sửa đơn hàng thành công", "Thông báo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                try
+                {
+                    dDonHang.SuaDonHang(donHang);
+                    return true;
+                }
+                catch (DbUpdateException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return false;
+                }
             }
             else
             {
-                MessageBox.Show("Sửa đơn hàng thất bại", "Thông báo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }    
-        }
-
-        public List<Order> LayDSDonHangReport()
-        {
-            return daoDH.LayDSDonHangReport();
+                return false;
+            }
         }
     }
 }

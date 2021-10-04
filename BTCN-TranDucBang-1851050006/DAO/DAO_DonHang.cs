@@ -4,89 +4,81 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShoesShop.DAO
+namespace BTCN_TranDucBang_1851050006.DAO
 {
     class DAO_DonHang
     {
-        ShoesShopDBEntities db;
+        NorthwindEntities db;
 
         public DAO_DonHang()
         {
-            db = new ShoesShopDBEntities();
+            db = new NorthwindEntities();
         }
 
+        public dynamic LayDSKhachHang()
+        {
+            dynamic ds = db.Customers.Select(s => new 
+            { 
+                s.CustomerID, 
+                s.CompanyName 
+            }).ToList();
+
+            return ds;
+        }
+
+        // Xử lý Employee
+        public dynamic LayDSNhanVien()
+        {
+            var ds = db.Employees.Select(s => new 
+            { 
+                s.EmployeeID, 
+                s.LastName, 
+                s.FirstName 
+            }).ToList();
+
+            return ds;
+        }
+
+        // Xử lý Order
         public dynamic LayDSDonHang()
         {
             dynamic ds = db.Orders.Select(s => new
             {
                 s.OrderID,
                 s.OrderDate,
-                Customer = s.Customer.FullName,
-                Employee = s.Employee.FullName,
-                s.TotalPrice
+                s.Customer.CompanyName,
+                s.Employee.FirstName
             }).ToList();
 
             return ds;
         }
 
-        public dynamic LayDSKH()
+        public bool KTDonHang(Order donHang)
         {
-            var ds = db.Customers.Select(s => new
+            Order d = db.Orders.Find(donHang.OrderID);
+            if (d != null)
             {
-                s.CustomerID,
-                s.FullName,
-            }).ToList();
-
-            return ds;
+                return true;
+            }
+            else
+                return false;
         }
 
-        public dynamic LayDSNV()
+        public void ThemDonHang(Order d)
         {
-            var ds = db.Employees.Select(s => new
-            {
-                s.EmployeeID,
-                s.FullName,
-            }).ToList();
-
-            return ds;
+            db.Orders.Add(d);
+            db.SaveChanges();
         }
 
-        public bool ThemDonHang(Order d)
+        public void SuaDonHang(Order donHang)
         {
-            bool tinhTrang = true;
+            Order d = db.Orders.Find(donHang.OrderID);
 
-            try
-            {
-                db.Orders.Add(d);
-                db.SaveChanges();
-            }
-            catch (Exception)
-            {
-                tinhTrang = false;
-            }
-            return tinhTrang;
-        }
+            d.OrderDate = donHang.OrderDate;
+            d.CustomerID = donHang.CustomerID;
+            d.EmployeeID = donHang.EmployeeID;
 
-        public bool SuaDonHang(Order donHang)
-        {
-            bool tinhTrang = true;
-
-            try
-            {
-                Order d = db.Orders.Find(donHang.OrderID);
-
-                d.OrderDate = donHang.OrderDate;
-                d.CustomerID = donHang.CustomerID;
-                d.EmployeeID = donHang.EmployeeID;
-
-                db.SaveChanges();
-            }
-            catch (Exception)
-            {
-                tinhTrang = false;
-            }
-
-            return tinhTrang;        
+            db.SaveChanges();
         }
 
         public bool XoaDonHang(int maDH)
@@ -116,12 +108,6 @@ namespace ShoesShop.DAO
                 tinhTrang = false;
             }
             return tinhTrang;
-        }
-
-        public List<Order> LayDSDonHangReport()
-        {
-            var ds = db.Orders.Select(s => s).ToList();
-            return ds;
         }
     }
 }
